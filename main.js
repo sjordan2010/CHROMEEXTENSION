@@ -82,15 +82,16 @@ playBtn.addEventListener("mouseout", function () {
   playBtn.style.cursor = 'default';
 });
 
-// function movePacman(x = 0) {
-//     if(x < 300) {
-//         x += 50;
-//         pacman.style.transform = `translateX(${x}px)`;
-//     } else {
-//         x -= 50;
-//         pacman.style.transform = `translateX(${x}px)`;
-//     }
-//     setTimeout(movePacman(x), 250);
-// }
 
-// setTimeout(movePacman, 250);
+let x = 0;
+function movePacman() {
+    if(x < 1800) {
+        x += 50;
+        pacman.style.transform = `translateX(${x}px)`;
+    } else {
+        x = 0;
+        pacman.style.transform = `translateX(${x}px)`;
+    }
+}
+
+setInterval(movePacman, 250);
