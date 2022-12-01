@@ -1,8 +1,23 @@
 // prepend to body element
 // const script = document.createElement('script');
+
+
+
+// ----------------------------------------------------------------------------------------
+// -------------------  this works --------------------------------------------------------
+// ----------------------------------------------------------------------------------------
+// let myStyle = document.createElement('style')
 // let head = document.getElementsByTagName('head')[0];
+// myStyle.innerHTML = "button:hover {background-color: red !important;}";
+// head.prepend(myStyle);
+
+
+
 // console.log(head);
 // // Create new link Element
+//
+
+
 // let link = document.createElement('link');
 //  // set the attributes for link element
 // link.rel = 'stylesheet';
@@ -11,11 +26,11 @@
  
 // // Append link element to HTML head
 // // script.append(link)
-// head.append(link);    
+// head.append(style);    
 
 
 const body = document.querySelector('body div');
-    // white div w/ message and question want to play that sends to snake game
+    //div w/ message and question want to play that sends to snake game
     const newDiv = document.createElement('div');
     newDiv.style.width = '100%';
     newDiv.style.height = '550px';
