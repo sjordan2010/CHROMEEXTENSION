@@ -1,0 +1,9 @@
+{
+    "manifest_version": 3,
+    "name": "anti-productivity",
+    "version": "3.0",
+    "content_scripts": [{
+        "matches": ["https://developer.mozilla.org/en-US/*"],
+        "js": ["./main.js"]
+    }]
+}
