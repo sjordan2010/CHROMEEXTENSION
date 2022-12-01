@@ -1,19 +1,3 @@
-// prepend to body element
-// const script = document.createElement('script');
-// let head = document.getElementsByTagName('head')[0];
-// console.log(head);
-// // Create new link Element
-// let link = document.createElement('link');
-//  // set the attributes for link element
-// link.rel = 'stylesheet';
-// link.type = 'text/css';
-// link.href = 'styles.css';
- 
-// // Append link element to HTML head
-// // script.append(link)
-// head.append(link);    
-
-
 const body = document.querySelector('body div');
     // white div w/ message and question want to play that sends to snake game
     const newDiv = document.createElement('div');
@@ -30,7 +14,6 @@ const body = document.querySelector('body div');
     newDiv.style.fontSize = '35px';
     newDiv.style.fontFamily = 'Garamond';
     
-
     const btnContainer = document.createElement('div');
     btnContainer.setAttribute('id', 'btnContainer');
     btnContainer.style.display = 'flex';
@@ -61,19 +44,18 @@ const body = document.querySelector('body div');
     noPlayBtn.style.borderRadius = "50px";
     noPlayBtn.style.backgroundColor = 'yellow';
     noPlayBtn.style.color = 'darkblue';
-
-    // const btns = document.getElementsByClassName('btn');
     
+    const pacman = document.createElement('img');
+    const imgURL = chrome.runtime.getURL("./pac-man.gif")
+    pacman.src = imgURL;
+
     btnContainer.append(noPlayBtn);
     btnContainer.append(playBtn);
     newDiv.append(btnContainer);
-    body.prepend(newDiv)
-
-// position absolute?
-// change z index
+    newDiv.append(pacman);
+    body.prepend(newDiv);
 
 noPlayBtn.addEventListener('click', function() {
-    // new div display to none
     newDiv.style.display = 'none'
 });
 
@@ -85,9 +67,6 @@ noPlayBtn.addEventListener('mouseover', function() {
 	if (noPlayBtn.style.transform === 'translateX(-200px)')
         noPlayBtn.style.transform = 'translateX(0px)';
     else noPlayBtn.style.transform = 'translateX(-200px)';
-    // if(noPlayBtn.style.left === '0px') {
-    //     noPlayBtn.style.left = '';
-    // } else noPlayBtn.style.left = '0px';
 })
 
 playBtn.addEventListener('mouseover', function() {
