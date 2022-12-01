@@ -5,5 +5,9 @@
     "content_scripts": [{
         "matches": ["https://www.w3schools.com/*", "https://developer.mozilla.org/en-US/*", "https://www.codesmith.io/*", "https://leetcode.com/*", "https://stackoverflow.com/*", "https://www.freecodecamp.org/*", "https://www.geeksforgeeks.org/*", "https://github.com/*"],
         "js": ["./main.js"]
+    }],
+    "web_accessible_resources": [{
+        "resources": ["*.gif"],
+        "matches": ["<all_urls>"]
     }]
 }

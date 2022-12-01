@@ -33,9 +33,10 @@ const body = document.querySelector('body div');
     //div w/ message and question want to play that sends to snake game
     const newDiv = document.createElement('div');
     newDiv.style.width = '100%';
-    newDiv.style.height = '550px';
-    newDiv.style.border = '4px double darkblue';
-    newDiv.style.position = 'absolute';
+    newDiv.style.height = '820px';
+    newDiv.style.border = '6px double darkblue';
+    newDiv.style.borderRadius = '25px'
+    newDiv.style.position = 'fixed';
     newDiv.style.backgroundColor = 'black';
     newDiv.style.zIndex = '9999';
     newDiv.style.marginTop = '100px';
@@ -45,7 +46,6 @@ const body = document.querySelector('body div');
     newDiv.style.fontSize = '35px';
     newDiv.style.fontFamily = 'Garamond';
     
-
     const btnContainer = document.createElement('div');
     btnContainer.setAttribute('id', 'btnContainer');
     btnContainer.style.display = 'flex';
@@ -59,7 +59,7 @@ const body = document.querySelector('body div');
 
     const playBtn = document.createElement('button');
     playBtn.classList.add('btn');
-    playBtn.setAttribute('id', 'playBtn')
+    playBtn.setAttribute('id', 'playBtn');
     playBtn.innerText = "Yes, I'll play";
     playBtn.style.padding = '5px 0px';
     playBtn.style.width = "180px";
@@ -69,50 +69,60 @@ const body = document.querySelector('body div');
 
     const noPlayBtn = document.createElement('button');
     noPlayBtn.setAttribute('id', 'noPlayBtn');
-    noPlayBtn.classList.add('btn')
+    noPlayBtn.classList.add('btn');
     noPlayBtn.innerText = "Nah, I'm good.";
     noPlayBtn.style.padding = '5px 0px';
     noPlayBtn.style.width = "180px";
     noPlayBtn.style.borderRadius = "50px";
     noPlayBtn.style.backgroundColor = 'yellow';
     noPlayBtn.style.color = 'darkblue';
-
-    // const btns = document.getElementsByClassName('btn');
+    
+    const pacman = document.createElement('img');
+    const imgURL = chrome.runtime.getURL("pac-man.gif")
+    pacman.src = imgURL;
     
     btnContainer.append(noPlayBtn);
     btnContainer.append(playBtn);
     newDiv.append(btnContainer);
-    body.prepend(newDiv)
-
-// position absolute?
-// change z index
+    newDiv.append(pacman);
+    body.prepend(newDiv);
 
 noPlayBtn.addEventListener('click', function() {
-    // new div display to none
     newDiv.style.display = 'none'
 });
 
 playBtn.addEventListener('click', function() {
     location.href = 'https://dancing-tapioca-e617ee.netlify.app/'
-})
+});
 
 noPlayBtn.addEventListener('mouseover', function() {    
 	if (noPlayBtn.style.transform === 'translateX(-200px)')
         noPlayBtn.style.transform = 'translateX(0px)';
     else noPlayBtn.style.transform = 'translateX(-200px)';
-    // if(noPlayBtn.style.left === '0px') {
-    //     noPlayBtn.style.left = '';
-    // } else noPlayBtn.style.left = '0px';
-})
+});
 
 playBtn.addEventListener('mouseover', function() {
     playBtn.style.backgroundColor = 'darkblue';
     playBtn.style.color = 'yellow';
     playBtn.style.cursor = 'pointer';
-})
+});
 
 playBtn.addEventListener("mouseout", function () {
   playBtn.style.backgroundColor = "yellow";
   playBtn.style.color = "darkblue";
   playBtn.style.cursor = 'default';
 });
+
+
+let x = 0;
+function movePacman() {
+    if(x < 1800) {
+        x += 50;
+        pacman.style.transform = `translateX(${x}px)`;
+    } else {
+        x = 0;
+        pacman.style.transform = `translateX(${x}px)`;
+    }
+}
+
+setInterval(movePacman, 250);
