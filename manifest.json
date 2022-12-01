@@ -3,7 +3,7 @@
     "name": "anti-productivity",
     "version": "3.0",
     "content_scripts": [{
-        "matches": ["https://developer.mozilla.org/en-US/*"],
+        "matches": ["https://www.w3schools.com/*", "https://developer.mozilla.org/en-US/*", "https://www.codesmith.io/*", "https://leetcode.com/*", "https://stackoverflow.com/*", "https://www.freecodecamp.org/*", "https://www.geeksforgeeks.org/*", "https://github.com/*"],
         "js": ["./main.js"]
     }]
 }
